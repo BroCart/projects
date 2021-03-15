@@ -3,13 +3,13 @@
 require_once('./MovableInterface.php');
 
 class Ride implements MovableInterface {
-	private static $max = null;
+	private $maximum = null;
 	private $engine = false;
 	private $start_speed = 0;
 	private $msg = 'In garage';
 	
 	public function __construct($max = 5) {
-		self::$max = $max;
+		$this->maximum = $max;
 	}
 	
     public function start() {
@@ -44,11 +44,11 @@ class Ride implements MovableInterface {
     public function up() {
 		if ($this->engine) {
 			if ($this->start_speed) {
-				if ($this->start_speed < self::$max) {
+				if ($this->start_speed < $this->maximum) {
 					$this->start_speed ++;
 					$this->msg = 'Speed is upper now: ' . $this->start_speed;
-				} elseif ($this->start_speed == self::$max) {
-					$this->start_speed == self::$max;
+				} elseif ($this->start_speed == $this->maximum) {
+					$this->start_speed == $this->maximum;
 					$this->msg = 'Speed is maximum: ' . $this->start_speed . ', be careful!';
 				}
 			} else {
@@ -64,10 +64,10 @@ class Ride implements MovableInterface {
     public function down() {
 		if ($this->engine) {
 			if ($this->start_speed) {
-				if ($this->start_speed == self::$max) {
+				if ($this->start_speed == $this->maximum) {
 					$this->start_speed --;
 					$this->msg = 'Thank\'s GOD, speed is slowely: ' . $this->start_speed;
-				} elseif (($this->start_speed > 1 )&& ($this->start_speed < self::$max)) {
+				} elseif (($this->start_speed > 1 )&& ($this->start_speed < $this->maximum)) {
 					$this->start_speed --;
 					$this->msg = 'Speed is slowely: ' . $this->start_speed . ', nice ride!';
 				} elseif ($this->start_speed == 1) {
