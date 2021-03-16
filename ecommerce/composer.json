@@ -1,0 +1,22 @@
+{
+    "name": "baco/seocart",
+    "description": "e-commerce solution",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vasya Byba",
+            "email": "baco@brocart.net"
+        }
+    ],
+    "minimum-stability": "dev",
+	"autoload": {
+        "psr-4": {
+            "ecommerce\\system\\": "app"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    }
+
+}
